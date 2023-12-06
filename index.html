@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advent Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .door {
+            background-color: #f0a;
+            border: none;
+            padding: 20px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar">
+        <button id="door1" class="door">Door 1</button>
+        <button id="door2" class="door">Door 2</button>
+        <button id="door3" class="door">Door 3</button>
+        <button id="door4" class="door">Door 4</button>
+        <button id="door5" class="door">Door 5</button>
+        <button id="door6" class="door">Door 6</button>
+        <button id="door7" class="door">Door 7</button>
+        <button id="door8" class="door">Door 8</button>
+        <button id="door9" class="door">Door 9</button>
+        <button id="door10" class="door">Door 10</button>
+        <button id="door11" class="door">Door 11</button>
+        <button id="door12" class="door">Door 12</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const doors = document.querySelectorAll('.door');
+
+            doors.forEach(door => {
+                door.addEventListener('click', () => {
+                    const doorNumber = door.id.replace('door', '');
+                    alert(`You opened door ${doorNumber}!`);
+                    // You can add more functionality here, like revealing a message or image.
+                });
+            });
+        });
+    </script>
+</body>
+</html>
