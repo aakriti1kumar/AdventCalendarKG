@@ -48,11 +48,20 @@
         document.addEventListener('DOMContentLoaded', () => {
             const doors = document.querySelectorAll('.door');
 
+            const messages = {
+                door1: { text: "Message for Door 1", link: "https://link1.com" },
+                door2: { text: "Message for Door 2", link: "https://link2.com" },
+                // ... Add messages and links for each door ...
+                door12: { text: "Message for Door 12", link: "https://link12.com" }
+            };
+
             doors.forEach(door => {
                 door.addEventListener('click', () => {
-                    const doorNumber = door.id.replace('door', '');
-                    alert(`You opened door ${doorNumber}!`);
-                    // You can add more functionality here, like revealing a message or image.
+                    const doorId = door.id;
+                    const message = messages[doorId].text;
+                    const link = messages[doorId].link;
+                    alert(`${message} - Find out more at ${link}`);
+                    // You can replace the alert with a more sophisticated display method if you prefer
                 });
             });
         });
