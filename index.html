@@ -67,6 +67,7 @@
             width: 80%;
             margin: 20px auto;
             text-align: left;
+            display: none; /* Initially hidden */
         }
     </style>
 </head>
@@ -96,6 +97,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const doors = document.querySelectorAll('.door');
+            const calendar = document.querySelector('.calendar');
             const poemDisplay = document.getElementById('poemDisplay');
 
 
@@ -120,6 +122,8 @@
                     const doorId = door.id;
                     const message = messages[doorId].text;
                     poemDisplay.innerHTML = message.replace(/\n/g, '<br>'); // Replace newlines with HTML line breaks
+                    poemDisplay.style.display = 'block'; // Show the poem display
+                    calendar.style.display = 'none'; // Hide the doors
                 });
             });
         });
