@@ -60,6 +60,19 @@
         #door10 { background-color: #28a745; }
         #door11 { background-color: #17a2b8; }
         #door12 { background-color: #20c997; }
+
+
+        .poem-display {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            min-height: 100px;
+            width: 80%;
+            margin: 20px auto;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -81,9 +94,15 @@
         <button id="door11" class="door">Door 11</button>
         <button id="door12" class="door">Door 12</button>
     </div>
+
+     <div class="poem-display" id="poemDisplay"></div>
+
     <script>
+
         document.addEventListener('DOMContentLoaded', () => {
             const doors = document.querySelectorAll('.door');
+            const poemDisplay = document.getElementById('poemDisplay');
+
 
             const messages = {
                 door10: { text: "Hey Kaddu, here's a cocoa delight,\nWarm and sweet, it's just right,\nSip it slow, feel the heat,\nChocolatey goodness, an unbeatable treat!" },
@@ -105,9 +124,7 @@
                 door.addEventListener('click', () => {
                     const doorId = door.id;
                     const message = messages[doorId].text;
-                    const link = messages[doorId].link;
-                    alert(`${message} - Find out more at ${link}`);
-                    // You can replace the alert with a more sophisticated display method if you prefer
+                    poemDisplay.innerHTML = message.replace(/\n/g, '<br>'); // Replace newlines with HTML line breaks
                 });
             });
         });
