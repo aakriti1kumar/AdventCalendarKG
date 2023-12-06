@@ -25,7 +25,7 @@
 
 
 
-          .calendar {
+        .calendar {
             display: flex;
             flex-wrap: wrap;
             justify-content: center; /* Center the doors */
@@ -39,7 +39,6 @@
             height: 150px; /* Set a fixed height */
             border: none;
             padding: 10px;
-            font-size: 20px;
             color: white;
             cursor: pointer;
             background-size: cover; /* Ensure the image covers the button */
@@ -67,7 +66,7 @@
             width: 80%;
             margin: 20px auto;
             text-align: center;
-            font-size: 30;
+            font-size: 30px;
             display: none; /* Initially hidden */
         }
     </style>
@@ -100,7 +99,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const calendar = document.getElementById('calendar');
             const poemDisplay = document.getElementById('poemDisplay');
-            const doors = Array.from(calendar.children);
+            let doors = Array.from(calendar.querySelectorAll('.door')); // Ensure doors are selected correctly
             shuffleArray(doors);
 
             // Clear the calendar and append shuffled doors
@@ -122,18 +121,16 @@
                 door5: { text: "Kaddu, let's write down this year's tale,\nThe ups, the downs, the epic scale,\nA story of us, of love and fun,\nAnother year down, many more to run!" }
             };
 
-
             doors.forEach(door => {
                 door.addEventListener('click', () => {
                     const doorId = door.id;
-                    const message = messages[doorId].text;
-                    poemDisplay.innerHTML = message.replace(/\n/g, '<br>'); // Replace newlines with HTML line breaks
-                    poemDisplay.style.display = 'block'; // Show the poem display
-                    calendar.style.display = 'none'; // Hide the doors
+                    const message = messages[doorId] ? messages[doorId].text : "No message found";
+                    poemDisplay.innerHTML = message.replace(/\n/g, '<br>');
+                    poemDisplay.style.display = 'block';
+                    calendar.style.display = 'none';
                 });
             });
 
-            // Function to shuffle an array
             function shuffleArray(array) {
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
