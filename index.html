@@ -93,13 +93,18 @@
 
      <div class="poem-display" id="poemDisplay"></div>
 
-    <script>
 
+
+        <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const doors = document.querySelectorAll('.door');
-            const calendar = document.querySelector('.calendar');
+            const calendar = document.getElementById('calendar');
             const poemDisplay = document.getElementById('poemDisplay');
+            const doors = Array.from(calendar.children);
+            shuffleArray(doors);
 
+            // Clear the calendar and append shuffled doors
+            calendar.innerHTML = '';
+            doors.forEach(door => calendar.appendChild(door));
 
             const messages = {
                 door10: { text: "Hey Kaddu, here's a cocoa delight,\nWarm and sweet, it's just right,\nSip it slow, feel the heat,\nChocolatey goodness, an unbeatable treat!" },
@@ -126,7 +131,16 @@
                     calendar.style.display = 'none'; // Hide the doors
                 });
             });
+
+            // Function to shuffle an array
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
         });
     </script>
+   
 </body>
 </html>
