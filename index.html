@@ -10,6 +10,22 @@
             text-align: center;
             padding: 20px;
         }
+        .title {
+            margin-top: 20px;
+            font-size: 40px; /* Increased font size */
+            color: #333;
+            text-align: center;
+            background: -webkit-linear-gradient(#eee, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: sparkle 1s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
         .calendar {
             display: grid;
