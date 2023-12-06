@@ -27,21 +27,25 @@
             100% { background-position: 0% 50%; }
         }
 
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+          .calendar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center the doors */
             gap: 10px;
             max-width: 600px;
             margin: auto;
         }
 
         .door {
-            background-color: #f0a;
+            width: 100px; /* Set a fixed width */
+            height: 100px; /* Set a fixed height */
             border: none;
-            padding: 20px;
+            padding: 10px;
             font-size: 20px;
             color: white;
             cursor: pointer;
+            background-size: cover; /* Ensure the image covers the button */
+            background-position: center; /* Center the image */
         }
                 /* Shades of Blue and Green for Doors */
         #door1 { background-color: #007bff; } /* Blue */
